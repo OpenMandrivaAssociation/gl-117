@@ -1,6 +1,6 @@
 %define	name	gl-117
 %define	version	1.3.2
-%define	rel	2
+%define	rel	3
 %define	release	%mkrel %{rel}
 %define	Summary	Action flight simulator
 
@@ -17,7 +17,6 @@ Group:		Games/Arcade
 Summary:	%{Summary}
 BuildRequires:	mesaglu-devel SDL_mixer-devel X11-devel nas-devel
 BuildRequires:	smpeg-devel oggvorbis-devel mesa-common-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 GL-117 is an action flight simulator for Linux/Unix and MSWindows.
@@ -36,19 +35,8 @@ sound effects, music...
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %{makeinstall_std}
-
-install -d $RPM_BUILD_ROOT%{_menudir}
-cat <<EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):command="%{_gamesbindir}/%{name}" \
-		icon=%{name}.png \
-		needs="x11" \
-		section="More Applications/Games/Arcade" \
-		title="GL-117"\
-		longtitle="%{Summary}" \
-		xdg="true"
-EOF
 
 install -d $RPM_BUILD_ROOT%{_datadir}/applications
 cat <<EOF > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop
@@ -61,7 +49,7 @@ Icon=%{name}
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=Game;ArcadeGame;X-MandrivaLinux-MoreApplications-Games-Arcade;
+Categories=Game;ArcadeGame;
 EOF
 
 install -m644 %{SOURCE11} -D $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
@@ -76,9 +64,6 @@ install -m644 doc/%{name}.6 -D $RPM_BUILD_ROOT%{_mandir}/man6/%{name}.6
 %postun
 %clean_menus
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README FAQ
@@ -87,7 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-%{_menudir}/%{name}
 %{_datadir}/applications/mandriva-%{name}.desktop
 %defattr(755,root,root,755)
 %{_gamesbindir}/*
