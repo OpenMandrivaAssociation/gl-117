@@ -41,7 +41,6 @@ rm -rf %{buildroot}
 install -d $RPM_BUILD_ROOT%{_datadir}/applications
 cat <<EOF > $RPM_BUILD_ROOT%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
-Encoding=UTF-8
 Name=GL-117
 Comment=%{Summary}
 Exec=%{_gamesbindir}/%{name}
