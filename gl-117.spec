@@ -14,6 +14,7 @@ Source12:	%{name}-32x32.png
 Source13:	%{name}-48x48.png
 License:	GPL
 Group:		Games/Arcade
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary:	%{Summary}
 BuildRequires:	mesaglu-devel SDL_mixer-devel X11-devel nas-devel
 BuildRequires:	smpeg-devel oggvorbis-devel mesa-common-devel
