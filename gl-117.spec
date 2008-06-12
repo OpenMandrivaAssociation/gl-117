@@ -58,11 +58,15 @@ install -m644 %{SOURCE13} -D $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
 install -m644 doc/%{name}.6 -D $RPM_BUILD_ROOT%{_mandir}/man6/%{name}.6
 
+%if %mdkversion < 200900
 %post
 %update_menus
+%endif
 
+%if %mdkversion < 200900
 %postun
 %clean_menus
+%endif
 
 %files
 %defattr(644,root,root,755)
