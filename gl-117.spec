@@ -1,6 +1,6 @@
 %define	name	gl-117
 %define	version	1.3.2
-%define	rel	5
+%define	rel	6
 %define	release	%mkrel %{rel}
 %define	Summary	Action flight simulator
 
@@ -16,8 +16,11 @@ License:	GPL
 Group:		Games/Arcade
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Summary:	%{Summary}
-BuildRequires:	mesaglu-devel SDL_mixer-devel X11-devel nas-devel
-BuildRequires:	smpeg-devel oggvorbis-devel mesa-common-devel
+BuildRequires:	mesagl-devel
+BuildRequires:	mesaglu-devel
+BuildRequires:	mesaglut-devel
+BuildRequires:	SDL-devel
+BuildRequires:	SDL_mixer-devel
 
 %description
 GL-117 is an action flight simulator for Linux/Unix and MSWindows.
