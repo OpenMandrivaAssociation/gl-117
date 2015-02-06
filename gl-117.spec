@@ -1,7 +1,7 @@
 Summary:	Action flight simulator
 Name:		gl-117
 Version:	1.3.2
-Release:	7
+Release:	8
 License:	GPLv2+
 Group:		Games/Arcade
 Url:		http://www.heptargon.de/
