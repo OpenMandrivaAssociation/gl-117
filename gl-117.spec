@@ -4,7 +4,7 @@ Version:	1.3.2
 Release:	8
 License:	GPLv2+
 Group:		Games/Arcade
-Url:		http://www.heptargon.de/
+Url:		https://www.heptargon.de/
 Source0:	http://prdownloads.sourceforge.net/gl-117/%{name}-%{version}-src.tar.bz2
 Source11:	%{name}-16x16.png
 Source12:	%{name}-32x32.png
